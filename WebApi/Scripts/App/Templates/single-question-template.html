@@ -1,0 +1,28 @@
+﻿<%
+//var yesVotes = _.find(get("votes"), function(vote){ return vote.answer == 0; });
+
+var votes = get("votes");
+var yesVotesNumber = 0;
+var noVotesNumber = 0;
+var dontKnowVotesNumber = 0;
+
+if (!IsObjectNullOrUndefined(votes) && votes.length > 0)
+{
+    yesVotesNumber = _.filter(get("votes"), function(vote){ return vote.answer == 0; }).length;
+    noVotesNumber = _.filter(get("votes"), function(vote){ return vote.answer == 1; }).length;
+    dontKnowVotesNumber = _.filter(get("votes"), function(vote){ return vote.answer == 2; }).length;
+}
+%>
+<div>
+    <% if(get("isOpenToVotes")) { %>
+    <input type="checkbox" data-questionId="<%= get('id')%>" checked></input>
+    <% }
+    else { %>
+    <input type="checkbox" data-questionid="<%= get('id')%>"></input>
+    <% } %>
+
+    <span><%=get("questionText") %></span>
+    <span>Yes:</span><span><%= yesVotesNumber %></span>
+    <span>No:</span><span><%= noVotesNumber %></span>
+    <span>Dont Know:</span><span><%= dontKnowVotesNumber %></span>
+</div>
