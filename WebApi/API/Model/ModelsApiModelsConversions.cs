@@ -22,17 +22,6 @@ namespace WebApi.API.Model
             return apiModel;
         }
 
-        public static Question ToModel(this QuestionApiModel questionApiModel)
-        {
-            Question question = new Question()
-            {
-                Id = questionApiModel.Id,
-                QuestionText = questionApiModel.QuestionText,
-                IsOpenToVotes = questionApiModel.IsOpenToVotes
-            };
-
-            return question;
-        } 
         #endregion
 
         #region User Model

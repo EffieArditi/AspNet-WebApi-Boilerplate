@@ -22,7 +22,7 @@ namespace WebApi.Repository.Tests
             Question q = new Question
             {
                 Id = ObjectId.GenerateNewId().ToString(),
-                QuestionText = "Who's on first ?"
+                QuestionText = "Who's on first?"
             };
 
             IQuestionRepository repo = ObjectFactory.GetInstance<IQuestionRepository>();
@@ -36,14 +36,14 @@ namespace WebApi.Repository.Tests
         {
             Question q = new Question
             {
-                QuestionText = "Who's on first ?",
+                QuestionText = "Who's on first?",
                 IsOpenToVotes = true
             };
 
             IQuestionRepository repo = ObjectFactory.GetInstance<IQuestionRepository>();
             Question questionFromDb = repo.Add(q);
 
-            questionFromDb.QuestionText = "Who's on second ?";
+            questionFromDb.QuestionText = "Who's on second?";
             repo.UpdateIsOpenToVotes(questionFromDb.Id, false);
 
             Question result = repo.GetById(questionFromDb.Id);
@@ -58,8 +58,6 @@ namespace WebApi.Repository.Tests
             Question q = new Question
             {
                 QuestionText = "What's the question?",
-                //Votes = new List<Vote>()
-                
             };
 
             IQuestionRepository repo = ObjectFactory.GetInstance<IQuestionRepository>();

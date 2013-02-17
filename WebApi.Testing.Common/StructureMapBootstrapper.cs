@@ -18,7 +18,6 @@ namespace WebApi.Testing.Common
             ObjectFactory.Initialize(cfg =>
             {
                 cfg.AddRegistry(new RepositoryIoCRegistry(connString));
-               // cfg.AddRegistry(new ManagersRegistry(clickatellServiceUsername, clickatellPassword, clickatellApiId, clickatellSender, pushoverApplicationToken, mixPanelApplicationToken, currentEnvHachikoMessageLink));
             });
 
             _hasStarted = true;

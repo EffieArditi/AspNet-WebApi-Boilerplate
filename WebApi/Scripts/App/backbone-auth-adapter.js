@@ -14,12 +14,7 @@ function AdaptBackboneSyncForAuthorization()
             userId = window.WebApiApp.LoggedInUser.get("id");
             accessToken = window.WebApiApp.LoggedInUser.get("accessToken");
         }
-
-        //// Default options, unless specified.
-        //_.defaults(options || (options = {}), {
-        //    emulateHTTP: Backbone.emulateHTTP,
-        //    emulateJSON: Backbone.emulateJSON
-        //});
+        
         options = options || {};
         options.beforeSend = function (xhr)
         {

@@ -35,7 +35,14 @@ namespace WebApi.API
         [ApiAuthorization(UserRole.Admin)]
         public QuestionApiModel AddQuestion(QuestionApiModel questionApiModel)
         {
-             return m_questionRepository.Add(questionApiModel.ToModel()).ToApiModel();
+            Question question = new Question()
+            {
+                Id = questionApiModel.Id,
+                QuestionText = questionApiModel.QuestionText,
+                IsOpenToVotes = questionApiModel.IsOpenToVotes
+            };
+
+            return m_questionRepository.Add(question).ToApiModel();
         }
 
         [PUT("api/questions/"), HttpPut]

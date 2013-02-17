@@ -20,7 +20,7 @@ namespace WebApi
         protected void Application_Start()
         {
             // Removing the Xml Formatter
-            GlobalConfiguration.Configuration.Formatters.Remove(new XmlMediaTypeFormatter());
+            //GlobalConfiguration.Configuration.Formatters.Remove(new XmlMediaTypeFormatter());
 
             // Configurating Json formatter to use camel case instead of the default pascal case
             var jsonFormatter = GlobalConfiguration.Configuration.Formatters.OfType<JsonMediaTypeFormatter>().First();

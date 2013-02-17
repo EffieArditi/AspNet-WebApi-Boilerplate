@@ -14,6 +14,7 @@ namespace WebApi.Repository
         User GetById(string id);
         User GetByName(string name);
     }
+
     public class UserRepository : IUserRepository
     {
         private readonly IRepository<User> m_userRepository;

@@ -39,7 +39,6 @@ namespace WebApi.Repository
 
         public void UpdateIsOpenToVotes(string questionId, bool isOpenToVotes)
         {
-            //m_repository.Update(surveyQuestion);
             var query = Query.EQ("_id", new ObjectId(questionId));
             var update = Update.Set("IsOpenToVotes", isOpenToVotes);
             m_repository.Collection.Update(query, update, UpdateFlags.None, WriteConcern.Acknowledged);

@@ -36,6 +36,10 @@ namespace WebApi.Testing.Common
             MongoCollection userCollection = db.GetCollection(typeof(User).Name);
             var query = Query.NE("Name", "effie");
             userCollection.Remove(query);
+
+            // deleting questions
+            MongoCollection questionsCollection = db.GetCollection(typeof(Question).Name);
+            questionsCollection.RemoveAll();
         }
     }
 }
