@@ -1,6 +1,67 @@
 ﻿body
 {
-     /* 60px to make the container go all the way to the bottom of the topbar */
+    /* 60px to make the container go all the way to the bottom of the topbar */
     padding-top: 60px;
     background-color: white;
+}
+
+.div-votes-container
+{
+    height: 35px;
+    border-bottom: 1px solid aliceblue;
+    padding: 7px;
+}
+
+.vote-check
+{
+    margin: 0px;
+}
+
+.question-text
+{
+    font-size: large;
+    width: 250px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.vote-title
+{
+    display: inline;
+    /*line-height: 20px;*/
+    height: 30px;
+    font-size: large;
+    margin-right: 4px;
+    /*border: 1px solid purple;*/
+}
+
+.votes
+{
+    display: inline-block;
+    line-height: 20px;
+    /*border: 1px solid red;*/
+    font-size: xx-large;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+    .votes.yes
+    {
+        color: #5bb75b;
+    }
+
+    .votes.no
+    {
+        color: #bd362f;
+    }
+
+    .votes.dont-know
+    {
+        color: #2f96b4;
+    }
+
+.button-vote
+{
+    width: 70px;
+    height: 50px;
 }

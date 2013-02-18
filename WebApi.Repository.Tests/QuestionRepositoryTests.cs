@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 using WebApi.Model;
 using MongoDB.Bson;
 using NUnit.Framework;
@@ -16,6 +17,20 @@ namespace WebApi.Repository.Tests
     [TestFixture]
     public class QuestionRepositoryTests : BaseClassDBOrientedTests
     {
+        [TestFixtureTearDown]
+        public void DeleteAllQuestions()
+        {
+            // Connecting the MongoDb and deleting its entire collections state
+            var cnn = new MongoUrl(ConfigurationHelper.GetCurrentEnvDbConnString());
+
+            var server = MongoServer.Create(cnn.ToServerSettings());
+            MongoDatabase db = server.GetDatabase(cnn.DatabaseName);
+
+            // deleting questions
+            MongoCollection questionsCollection = db.GetCollection(typeof(Question).Name);
+            questionsCollection.RemoveAll();    
+        }
+
         [Test]
         public void Add()
         {

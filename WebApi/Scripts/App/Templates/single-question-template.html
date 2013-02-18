@@ -13,16 +13,16 @@ if (!IsObjectNullOrUndefined(votes) && votes.length > 0)
     dontKnowVotesNumber = _.filter(get("votes"), function(vote){ return vote.answer == 2; }).length;
 }
 %>
-<div>
+<div class="div-votes-container">
     <% if(get("isOpenToVotes")) { %>
-    <input type="checkbox" data-questionId="<%= get('id')%>" checked></input>
+    <input type="checkbox" class="vote-check" data-questionId="<%= get('id')%>" checked></input>
     <% }
     else { %>
-    <input type="checkbox" data-questionid="<%= get('id')%>"></input>
+    <input type="checkbox" class="vote-check"  data-questionid="<%= get('id')%>"></input>
     <% } %>
 
-    <span><%=get("questionText") %></span>
-    <span>Yes:</span><span><%= yesVotesNumber %></span>
-    <span>No:</span><span><%= noVotesNumber %></span>
-    <span>Dont Know:</span><span><%= dontKnowVotesNumber %></span>
+    <span class="question-text"><%=get("questionText") %></span>
+    <span class="vote-title">Yes:</span><span class="votes yes"><%= yesVotesNumber %></span>
+    <span class="vote-title">No:</span><span class="votes no"><%= noVotesNumber %></span>
+    <span class="vote-title">Dont Know:</span><span class="votes dont-know"><%= dontKnowVotesNumber %></span>
 </div>
