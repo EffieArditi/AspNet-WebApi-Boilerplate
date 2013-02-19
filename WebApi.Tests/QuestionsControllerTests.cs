@@ -18,19 +18,26 @@ namespace WebApi.Tests
         [Test]
         public void AddQuestion()
         {
-            Question q = new Question
+            QuestionApiModel questionApiModelToAdd = new QuestionApiModel
+            {
+                QuestionText = "Test Question",
+                IsOpenToVotes = false
+            }; 
+
+            Question question = new Question
             {
                 QuestionText = "Test Question",
                 IsOpenToVotes = false
             };
 
             var questionRepoMock = new Mock<IQuestionRepository>();
-            questionRepoMock.Setup(repo => repo.Add(It.IsAny<Question>())).Returns(q);
+            questionRepoMock.Setup(repo => repo.Add(It.IsAny<Question>())).Returns(question);
 
             QuestionsController controller = new QuestionsController(questionRepoMock.Object);
-            QuestionApiModel result = controller.AddQuestion(q.ToApiModel());
+            var result = controller.AddQuestion(questionApiModelToAdd);
 
-            Assert.AreEqual(q.QuestionText, result.QuestionText);
+            Assert.AreEqual(question.QuestionText, result.QuestionText);
+            Assert.IsInstanceOf<QuestionApiModel>(result);
         }
     }
 }
