@@ -1,4 +1,4 @@
-WebApiExample
+AspNet-WebApi-Boilerplate
 =============
 
-ASP.NET WebApi Example for building SPA applications
+ASP.NET WebApi and Backbone.js Boilerplate For Building Ultimate Web Applications
